@@ -79,7 +79,7 @@ const MatchSummaryGenerator = () => {
   const bowlerNameStyle = {
     position: "relative",
     backgroundColor: "#8a222b",
-    color: "black",
+    color: "white",
     fontWeight: "bold",
     padding: "8px 16px",
     width: "100%",
@@ -283,7 +283,7 @@ const MatchSummaryGenerator = () => {
                     <input
                       type="text"
                       name="bowler1t1Stats"
-                      placeholder="Stats (Wkts-Runs-Ovrs)"
+                      placeholder="Stats:- kts-Runs-Ovrs"
                       onChange={handleChange}
                       className="form-control"
                     />
@@ -301,7 +301,7 @@ const MatchSummaryGenerator = () => {
                     <input
                       type="text"
                       name="bowler1t2Stats"
-                      placeholder="Stats (Wkts-Runs-Ovrs)"
+                      placeholder="Stats:- Wkts-Runs-Ovrs"
                       onChange={handleChange}
                       className="form-control"
                     />
@@ -319,7 +319,7 @@ const MatchSummaryGenerator = () => {
                     <input
                       type="text"
                       name="bowler2t1Stats"
-                      placeholder="Stats (Wkts-Runs-Ovrs)"
+                      placeholder="Stats:- kts-Runs-Ovrs"
                       onChange={handleChange}
                       className="form-control"
                     />
@@ -337,7 +337,7 @@ const MatchSummaryGenerator = () => {
                     <input
                       type="text"
                       name="bowler2t2Stats"
-                      placeholder="Stats (Wkts-Runs-Ovrs)"
+                       placeholder="Stats:- kts-Runs-Ovrs"
                       onChange={handleChange}
                       className="form-control"
                     />
@@ -374,183 +374,188 @@ const MatchSummaryGenerator = () => {
           </div>
 
           {/* Team 1 */}
-          <div className="d-flex justify-content-between mx-5 px-5 py-2 bg-warning rounded-sm">
-            <p className="font-weight-bold text-uppercase h3 pr-2">{formData.team1}</p>
-            <p className="font-weight-bold h3">
-              {formData.team1Score} <span className="h6">({formData.team1Overs})</span>
-            </p>
+          <div className="mx-5">
+            <div className="d-flex justify-content-between mx-5 px-5 py-2 bg-warning rounded-sm">
+              <p className="font-weight-bold text-uppercase h3 pr-2 text-black">{formData.team1}</p>
+              <p className="font-weight-bold h3  text-black">
+                {formData.team1Score} <span className="h6  text-black">({formData.team1Overs})</span>
+              </p>
+            </div>
+            <div className="row mt-2">
+              <div className="col-6">
+                <div className="d-flex flex-row ms-5">
+                  <div className="col-10 p-0 h-25">
+                    {/* Replaced clip-path with div+angle element */}
+                    <div style={playerNameStyle}>
+                      <span>{formData.player1t1}</span>
+                      <div style={playerAngleStyle}></div>
+                    </div>
+                  </div>
+                  <div className="col-2 p-0">
+                    <div className="d-flex justify-content-end align-items-center p-2" style={{
+                      color: "#FFC107",
+                      fontWeight: "bold",
+                    }}>
+                      <span>{formData.player1t1Runs}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="d-flex flex-row me-5">
+                  <div className="col-10">
+                    {/* Replaced clip-path with div+angle element */}
+                    <div style={bowlerNameStyle}>
+                      <span>{formData.bowler1t1}</span>
+                      <div style={bowlerAngleStyle}></div>
+                    </div>
+                  </div>
+                  <div className="col-2">
+                    <div className="d-flex justify-content-end align-items-center p-2" style={{
+                      color: "white",
+                      fontWeight: "bold",
+                    }}>
+                      <span>{formData.bowler1t1Stats}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row mt-2">
+              <div className="col-6">
+                <div className="d-flex flex-row ms-5">
+                  <div className="col-10 p-0">
+                    {/* Replaced clip-path with div+angle element */}
+                    <div style={playerNameStyle}>
+                      <span>{formData.player2t1}</span>
+                      <div style={playerAngleStyle}></div>
+                    </div>
+                  </div>
+                  <div className="col-2 p-0">
+                    <div className="d-flex justify-content-end align-items-center p-2" style={{
+                      color: "#FFC107",
+                      fontWeight: "bold",
+                    }}>
+                      <span>{formData.player2t1Runs}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="d-flex flex-row me-5">
+                  <div className="col-10">
+                    {/* Replaced clip-path with div+angle element */}
+                    <div style={bowlerNameStyle}>
+                      <span>{formData.bowler2t1}</span>
+                      <div style={bowlerAngleStyle}></div>
+                    </div>
+                  </div>
+                  <div className="col-2">
+                    <div className="d-flex justify-content-end align-items-center p-2" style={{
+                      color: "white",
+                      fontWeight: "bold",
+                    }}>
+                      <span>{formData.bowler2t1Stats}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="row mt-2">
-            <div className="col-6">
-              <div className="d-flex flex-row ms-5">
-                <div className="col-10 p-0 h-25">
-                  {/* Replaced clip-path with div+angle element */}
-                  <div style={playerNameStyle}>
-                    <span>{formData.player1t1}</span>
-                    <div style={playerAngleStyle}></div>
-                  </div>
-                </div>
-                <div className="col-2 p-0">
-                  <div className="d-flex justify-content-end align-items-center p-2" style={{
-                    color: "#FFC107",
-                    fontWeight: "bold",
-                  }}>
-                    <span>{formData.player1t1Runs}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="d-flex flex-row me-5">
-                <div className="col-10">
-                  {/* Replaced clip-path with div+angle element */}
-                  <div style={bowlerNameStyle}>
-                    <span>{formData.bowler1t1}</span>
-                    <div style={bowlerAngleStyle}></div>
-                  </div>
-                </div>
-                <div className="col-2">
-                  <div className="d-flex justify-content-end align-items-center p-2" style={{
-                    color: "#FFC107",
-                    fontWeight: "bold",
-                  }}>
-                    <span>{formData.bowler1t1Stats}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row mt-2">
-            <div className="col-6">
-              <div className="d-flex flex-row ms-5">
-                <div className="col-10 p-0">
-                  {/* Replaced clip-path with div+angle element */}
-                  <div style={playerNameStyle}>
-                    <span>{formData.player2t1}</span>
-                    <div style={playerAngleStyle}></div>
-                  </div>
-                </div>
-                <div className="col-2 p-0">
-                  <div className="d-flex justify-content-end align-items-center p-2" style={{
-                    color: "#FFC107",
-                    fontWeight: "bold",
-                  }}>
-                    <span>{formData.player2t1Runs}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="d-flex flex-row me-5">
-                <div className="col-10">
-                  {/* Replaced clip-path with div+angle element */}
-                  <div style={bowlerNameStyle}>
-                    <span>{formData.bowler2t1}</span>
-                    <div style={bowlerAngleStyle}></div>
-                  </div>
-                </div>
-                <div className="col-2">
-                  <div className="d-flex justify-content-end align-items-center p-2" style={{
-                    color: "#FFC107",
-                    fontWeight: "bold",
-                  }}>
-                    <span>{formData.bowler2t1Stats}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          {/* Team 1 end*/}
+          
           {/* Team 2 */}
-          <div className="d-flex justify-content-between mx-5 px-5 py-2 mt-5 rounded-sm" style={{
-            backgroundColor: "#8a222b"
-          }}>
-            <p className="font-weight-bold text-uppercase h3 pr-2">{formData.team2}</p>
-            <p className="font-weight-bold h3">
-              {formData.team2Score} <span className="h6">({formData.team2Overs})</span>
-            </p>
+          <div className="mx-5">
+            <div className="d-flex justify-content-between mx-5 px-5 py-2 mt-5 rounded-sm" style={{
+              backgroundColor: "#8a222b"
+            }}>
+              <p className="font-weight-bold text-uppercase h3 pr-2">{formData.team2}</p>
+              <p className="font-weight-bold h3">
+                {formData.team2Score} <span className="h6">({formData.team2Overs})</span>
+              </p>
+            </div>
+            <div className="row mt-2">
+              <div className="col-6">
+                <div className="d-flex flex-row ms-5">
+                  <div className="col-10 p-0 h-25">
+                    {/* Replaced clip-path with div+angle element */}
+                    <div style={playerNameStyle}>
+                      <span>{formData.player1t2}</span>
+                      <div style={playerAngleStyle}></div>
+                    </div>
+                  </div>
+                  <div className="col-2 p-0">
+                    <div className="d-flex justify-content-end align-items-center p-2" style={{
+                      color: "#FFC107",
+                      fontWeight: "bold",
+                    }}>
+                      <span>{formData.player1t2Runs}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="d-flex flex-row me-5">
+                  <div className="col-10">
+                    {/* Replaced clip-path with div+angle element */}
+                    <div style={bowlerNameStyle}>
+                      <span>{formData.bowler1t2}</span>
+                      <div style={bowlerAngleStyle}></div>
+                    </div>
+                  </div>
+                  <div className="col-2">
+                    <div className="d-flex justify-content-end align-items-center p-2" style={{
+                      color: "white",
+                      fontWeight: "bold",
+                    }}>
+                      <span>{formData.bowler1t2Stats}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row mt-2">
+              <div className="col-6">
+                <div className="d-flex flex-row ms-5">
+                  <div className="col-10 p-0">
+                    {/* Replaced clip-path with div+angle element */}
+                    <div style={playerNameStyle}>
+                      <span>{formData.player2t2}</span>
+                      <div style={playerAngleStyle}></div>
+                    </div>
+                  </div>
+                  <div className="col-2 p-0">
+                    <div className="d-flex justify-content-end align-items-center p-2" style={{
+                      color: "#FFC107",
+                      fontWeight: "bold",
+                    }}>
+                      <span>{formData.player2t2Runs}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="d-flex flex-row me-5">
+                  <div className="col-10">
+                    {/* Replaced clip-path with div+angle element */}
+                    <div style={bowlerNameStyle}>
+                      <span>{formData.bowler2t2}</span>
+                      <div style={bowlerAngleStyle}></div>
+                    </div>
+                  </div>
+                  <div className="col-2">
+                    <div className="d-flex justify-content-end align-items-center p-2" style={{
+                      color: "white",
+                      fontWeight: "bold",
+                    }}>
+                      <span>{formData.bowler2t2Stats}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="row mt-2">
-            <div className="col-6">
-              <div className="d-flex flex-row ms-5">
-                <div className="col-10 p-0 h-25">
-                  {/* Replaced clip-path with div+angle element */}
-                  <div style={playerNameStyle}>
-                    <span>{formData.player1t2}</span>
-                    <div style={playerAngleStyle}></div>
-                  </div>
-                </div>
-                <div className="col-2 p-0">
-                  <div className="d-flex justify-content-end align-items-center p-2" style={{
-                    color: "#FFC107",
-                    fontWeight: "bold",
-                  }}>
-                    <span>{formData.player1t2Runs}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="d-flex flex-row me-5">
-                <div className="col-10">
-                  {/* Replaced clip-path with div+angle element */}
-                  <div style={bowlerNameStyle}>
-                    <span>{formData.bowler1t2}</span>
-                    <div style={bowlerAngleStyle}></div>
-                  </div>
-                </div>
-                <div className="col-2">
-                  <div className="d-flex justify-content-end align-items-center p-2" style={{
-                    color: "#FFC107",
-                    fontWeight: "bold",
-                  }}>
-                    <span>{formData.bowler1t2Stats}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row mt-2">
-            <div className="col-6">
-              <div className="d-flex flex-row ms-5">
-                <div className="col-10 p-0">
-                  {/* Replaced clip-path with div+angle element */}
-                  <div style={playerNameStyle}>
-                    <span>{formData.player2t2}</span>
-                    <div style={playerAngleStyle}></div>
-                  </div>
-                </div>
-                <div className="col-2 p-0">
-                  <div className="d-flex justify-content-end align-items-center p-2" style={{
-                    color: "#FFC107",
-                    fontWeight: "bold",
-                  }}>
-                    <span>{formData.player2t2Runs}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="d-flex flex-row me-5">
-                <div className="col-10">
-                  {/* Replaced clip-path with div+angle element */}
-                  <div style={bowlerNameStyle}>
-                    <span>{formData.bowler2t2}</span>
-                    <div style={bowlerAngleStyle}></div>
-                  </div>
-                </div>
-                <div className="col-2">
-                  <div className="d-flex justify-content-end align-items-center p-2" style={{
-                    color: "#FFC107",
-                    fontWeight: "bold",
-                  }}>
-                    <span>{formData.bowler2t2Stats}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          {/* Team 2 end*/}
           {/* Logo at the bottom */}
           <div className="mt-5 mb-0">
             <img
